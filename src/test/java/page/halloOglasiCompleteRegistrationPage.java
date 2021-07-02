@@ -18,8 +18,5 @@ public class halloOglasiCompleteRegistrationPage extends baseTest {
         wdwait.until(ExpectedConditions.visibilityOf(registrationCompleteText));
         return registrationCompleteText.getText();
     }
-
-
-
 }
 

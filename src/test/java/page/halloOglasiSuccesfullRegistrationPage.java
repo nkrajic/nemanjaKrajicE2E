@@ -11,13 +11,16 @@ public class halloOglasiSuccesfullRegistrationPage extends baseTest {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[contains(text(),\"Vaš nalog je uspešno aktiviran!\")]")
+    @FindBy (xpath = "//span[contains(text(),\"Vaš nalog je uspešno aktiviran!\")]")
     WebElement registrationActivated;
 
     @FindBy (linkText = "Uloguj se")
     WebElement loginLink;
 
-    public String verifyActivatedText(){
+
+
+
+    public String verifyActivatedAccountText(){
         wdwait.until(ExpectedConditions.visibilityOf(registrationActivated));
         return registrationActivated.getText();
     }
@@ -25,6 +28,8 @@ public class halloOglasiSuccesfullRegistrationPage extends baseTest {
         wdwait.until(ExpectedConditions.visibilityOf(loginLink));
         loginLink.click();
     }
+
+
 
 
 }

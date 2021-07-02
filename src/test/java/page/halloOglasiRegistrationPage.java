@@ -26,12 +26,16 @@ public class halloOglasiRegistrationPage extends baseTest {
     @FindBy (css = ".button-reg.save.save-entity.person-face.btn-main")
     WebElement registrationBtn;
 
-    public void clickRadioBtn () {
-        wdwait.until(ExpectedConditions.visibilityOf(radioBntFL));
-        if (radioBntFL.isSelected()) {
+
+
+
+    public void clickRadioBtn(){
+        boolean selectState = radioBntFL.isSelected();
+        if (!selectState){
             radioBntFL.click();
         }
     }
+
     public void inputUserName(String username){
         wdwait.until(ExpectedConditions.visibilityOf(userNameField));
         userNameField.clear();
@@ -54,7 +58,8 @@ public class halloOglasiRegistrationPage extends baseTest {
     }
     public void newsletterBox(){
         wdwait.until(ExpectedConditions.visibilityOf(chBoxNewsletters));
-        if (chBoxNewsletters.isSelected()){
+        boolean selectState = chBoxNewsletters.isDisplayed();
+        if (!selectState){
             chBoxNewsletters.click();
         }
     }

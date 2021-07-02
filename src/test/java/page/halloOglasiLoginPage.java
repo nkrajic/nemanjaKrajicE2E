@@ -27,10 +27,10 @@ public class halloOglasiLoginPage extends baseTest {
         wdwait.until(ExpectedConditions.visibilityOf(registrationLink));
         registrationLink.click();
     }
-    public void inputEmailOrUsername(String emailouser){
+    public void inputEmailOrUsername(String emailoruser){
         wdwait.until(ExpectedConditions.visibilityOf(emailOrUsername));
         emailOrUsername.clear();
-        emailOrUsername.sendKeys(emailouser);
+        emailOrUsername.sendKeys(emailoruser);
     }
 
     public void inputLoginPassword(String password){

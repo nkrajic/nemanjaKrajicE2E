@@ -21,6 +21,10 @@ public class mailinatorHomePage extends baseTest {
         wdwait.until(ExpectedConditions.visibilityOf(emailSearchBox));
         emailSearchBox.clear();
         emailSearchBox.sendKeys(email);
+    }
+
+    public void pushEnter(){
+        wdwait.until(ExpectedConditions.visibilityOf(emailSearchBox));
         emailSearchBox.sendKeys(Keys.ENTER);
     }
 
