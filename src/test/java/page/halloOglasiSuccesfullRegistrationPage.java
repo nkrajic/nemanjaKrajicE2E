@@ -2,6 +2,7 @@ package page;
 
 import base.baseTest;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,10 +12,11 @@ public class halloOglasiSuccesfullRegistrationPage extends baseTest {
         PageFactory.initElements(driver, this);
     }
 
+
     @FindBy (xpath = "//span[contains(text(),\"Vaš nalog je uspešno aktiviran!\")]")
     WebElement registrationActivated;
 
-    @FindBy (linkText = "Uloguj se")
+    @FindBy (xpath = "//a[contains(text(),\"Prijava\")]")
     WebElement loginLink;
 
 
