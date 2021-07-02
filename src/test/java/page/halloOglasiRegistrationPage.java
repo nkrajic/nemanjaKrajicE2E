@@ -13,13 +13,13 @@ public class halloOglasiRegistrationPage extends baseTest {
 
     @FindBy (xpath = "//span[contains(text(),\"Fizičkog lica\")]")
     WebElement radioBntFL;
-    @FindBy (xpath = "//input[@id='UserName']")
+    @FindBy (id = "UserName")
     WebElement userNameField;
-    @FindBy (xpath = "//input[@id='Email']")
+    @FindBy (id = "Email")
     WebElement emailField;
-    @FindBy (xpath = "//input[@id='Password']")
+    @FindBy (id = "Password")
     WebElement passwordField;
-    @FindBy (xpath = "//input[@id='ConfirmPassword']")
+    @FindBy (id = "ConfirmPassword")
     WebElement confirmPassField;
     @FindBy (id = "AllowSendingNewsletters")
     WebElement chBoxNewsletters;
@@ -30,10 +30,9 @@ public class halloOglasiRegistrationPage extends baseTest {
 
 
     public void clickRadioBtn(){
-        boolean selectState = radioBntFL.isSelected();
-        if (!selectState){
-            radioBntFL.click();
-        }
+        //proverava da li je selektovano ako jeste ne klikci ako nije klikni
+       if (!radioBntFL.isSelected())
+           radioBntFL.click();
     }
 
     public void inputUserName(String username){
@@ -58,8 +57,7 @@ public class halloOglasiRegistrationPage extends baseTest {
     }
     public void newsletterBox(){
         wdwait.until(ExpectedConditions.visibilityOf(chBoxNewsletters));
-        boolean selectState = chBoxNewsletters.isDisplayed();
-        if (!selectState){
+        if (chBoxNewsletters.isSelected()){
             chBoxNewsletters.click();
         }
     }

@@ -18,7 +18,7 @@ public class halloOglasiE2ETest extends baseTest {
     halloOglasiAccountHomePage HalloOglasiAccountHomePage;
 
     @Before
-    public void setUpPage(){
+    public void setUpTest(){
         HalloOglasiHomePage = new halloOglasiHomePage();
         HalloOglasiLoginPage = new halloOglasiLoginPage();
         HalloOglasiRegistrationPage = new halloOglasiRegistrationPage();
