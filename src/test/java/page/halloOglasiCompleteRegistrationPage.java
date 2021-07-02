@@ -14,6 +14,11 @@ public class halloOglasiCompleteRegistrationPage extends baseTest {
     @FindBy (className = "regsitration-success")
     WebElement registrationCompleteText;
 
+    public boolean verifyCompleteRegistrationTextDisplayed(){
+        wdwait.until(ExpectedConditions.visibilityOf(registrationCompleteText));
+        return registrationCompleteText.isDisplayed();
+    }
+
     public String verifyCompleteRegistrationText (){
         wdwait.until(ExpectedConditions.visibilityOf(registrationCompleteText));
         return registrationCompleteText.getText();

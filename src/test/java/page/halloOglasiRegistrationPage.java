@@ -23,7 +23,7 @@ public class halloOglasiRegistrationPage extends baseTest {
     WebElement confirmPassField;
     @FindBy (id = "AllowSendingNewsletters")
     WebElement chBoxNewsletters;
-    @FindBy (css = ".button-reg.save.save-entity.person-face.btn-main")
+    @FindBy (className = "button-reg")
     WebElement registrationBtn;
 
 

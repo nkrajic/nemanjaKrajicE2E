@@ -1,10 +1,12 @@
 package test;
 
 import base.baseTest;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import page.*;
+
+import java.util.Random;
 
 public class halloOglasiE2ETest extends baseTest {
 
@@ -16,6 +18,11 @@ public class halloOglasiE2ETest extends baseTest {
     mailinatorEmailInboxPage MailinatorEmailInboxPage;
     halloOglasiSuccesfullRegistrationPage HalloOglasiSuccesfullRegistrationPage;
     halloOglasiAccountHomePage HalloOglasiAccountHomePage;
+    Random ran = new Random();
+    int x = ran.nextInt(999999);
+    String ime = "testiranje" + x;
+    String mailinatorDomen = "@mailinator.com";
+    String lozinka ="1234567";
 
     @Before
     public void setUpTest(){
@@ -35,18 +42,18 @@ public class halloOglasiE2ETest extends baseTest {
         HalloOglasiHomePage.loginBtnClik();
         HalloOglasiLoginPage.registrationLinkClick();
         HalloOglasiRegistrationPage.clickRadioBtn();
-        HalloOglasiRegistrationPage.inputUserName("testiranje28");
-        HalloOglasiRegistrationPage.inputEmail("testiranje28@mailinator.com");
-        HalloOglasiRegistrationPage.inputPassword("12345678");
-        HalloOglasiRegistrationPage.inputConfirmPassword("12345678");
+        HalloOglasiRegistrationPage.inputUserName(ime);
+        HalloOglasiRegistrationPage.inputEmail(ime + mailinatorDomen);
+        HalloOglasiRegistrationPage.inputPassword(lozinka);
+        HalloOglasiRegistrationPage.inputConfirmPassword(lozinka);
         HalloOglasiRegistrationPage.newsletterBox();
         HalloOglasiRegistrationPage.clickRegistrationBnt();
-        Assert.assertEquals("Registracija je uspela!\n" +
+        assertEquals("Registracija je uspela!\n" +
                 "Kako bi Vaš nalog postao aktivan, neophodno je da kliknite na" +
                 " link u mejlu koji Vam je poslat na : " +
-                "testiranje28@mailinator.com !", HalloOglasiComleteRegistrationPage.verifyCompleteRegistrationText());
+                 ime + mailinatorDomen +" !", HalloOglasiComleteRegistrationPage.verifyCompleteRegistrationText());
         driver.get("https://www.mailinator.com/");
-        MailinatorHomePage.inputEmailSaerchBox("testiranje28@mailinator.com");
+        MailinatorHomePage.inputEmailSaerchBox(ime + mailinatorDomen);
         MailinatorHomePage.pushEnter();
         MailinatorEmailInboxPage.confirmationLink();
         MailinatorEmailInboxPage.frame1();
@@ -58,12 +65,12 @@ public class halloOglasiE2ETest extends baseTest {
                 break;
             }
         }
-        Assert.assertEquals("Vaš nalog je uspešno aktiviran!", HalloOglasiSuccesfullRegistrationPage.verifyActivatedAccountText());
+        assertEquals("Vaš nalog je uspešno aktiviran!", HalloOglasiSuccesfullRegistrationPage.verifyActivatedAccountText());
         HalloOglasiSuccesfullRegistrationPage.loginToAccount();
-        HalloOglasiLoginPage.inputEmailOrUsername("testiranje28@mailinator.com");
-        HalloOglasiLoginPage.inputLoginPassword("12345678");
+        HalloOglasiLoginPage.inputEmailOrUsername(ime + mailinatorDomen);
+        HalloOglasiLoginPage.inputLoginPassword(lozinka);
         HalloOglasiLoginPage.loginBtnClick();
-        Assert.assertEquals("testiranje28", HalloOglasiAccountHomePage.verifyLoginToAccount());
+        assertEquals(ime , HalloOglasiAccountHomePage.verifyLoginToAccount());
 
 
 
